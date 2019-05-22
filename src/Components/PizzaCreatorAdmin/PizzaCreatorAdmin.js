@@ -9,6 +9,7 @@ const PizzaCreatorAdmin = () => {
             <img src={Img}/>
         </div>   
     )
+    
 }
 
 export default PizzaCreatorAdmin;
