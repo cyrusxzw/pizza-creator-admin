@@ -1,0 +1,13 @@
+.app table {
+    width: 100%;
+}
+
+.app h2 {
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.app table th {
+    text-align: left;
+}
+

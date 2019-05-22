@@ -1,0 +1,23 @@
+.sidebar {
+    background:#001529;
+    color:#fff;
+    padding: 2rem;
+}
+
+.sidebar .brand img{
+    width: 50px;
+}
+
+.sidebar h1 {
+    font-size: 1.5rem;
+}
+
+.menu-item {
+    display: block;
+    color:rgba(255, 255, 255, 0.6);
+    margin:20px 0;
+}
+
+.menu-item.active {
+    color:rgba(255, 255, 255, 0.9);
+}
