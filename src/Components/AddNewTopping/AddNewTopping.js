@@ -1,5 +1,6 @@
 import React from 'react';
 import './AddNewTopping.css';
+import axios from 'axios';
 
 export default class AddNewTopping extends React.Component{
     constructor(props){
@@ -7,15 +8,17 @@ export default class AddNewTopping extends React.Component{
         this.state = {
             topping: {},
         };
+
+        this.onToppingChange = this.onToppingChange.bind(this);
     }
 
-    onToppingChnage(key, value){
+    onToppingChange(key, value){
         const { topping } = this.state;
 
         this.setState({
             topping: {
                 ...topping,
-                [key]:value,
+                [key]: value,
             },
         });
     }
@@ -29,12 +32,16 @@ export default class AddNewTopping extends React.Component{
             <form className="add-new-topping" onSubmit = {
                 (event) => {
                     event.preventDefault();
+
                     console.log(topping);
+                    axios.post('http://localhost:3000/toppings', topping)
+                    .then (({data: {createdTopping}}) => console.log(createdTopping))
                 }
             }>
             <div className="form-items">
-                <input onChange = { ({ target: {value} }) => this.onToppingChnage.bind(this, 'name', value)} placeholder="Name"/>
-                <input onChange = { ({ target: {value} }) => this.onToppingChnage.bind(this, 'price', value)} placeholder="Price"/>
+            <input onChange = { ({ target: {value} }) => this.onToppingChange('imageUrl', value)} placeholder="imageUrl"/>
+                <input onChange = { ({ target: {value} }) => this.onToppingChange('name', value)} placeholder="Name"/>
+                <input onChange = { ({ target: {value} }) => this.onToppingChange('price', value)} placeholder="Price"/>
             </div>
             <br/>
             <button>Add</button>

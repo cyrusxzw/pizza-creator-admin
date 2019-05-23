@@ -27,15 +27,17 @@ export default class ToppingsTable extends React.Component{
                 <table>
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                   {toppings.map(({id, name, price}) =>
+                   {toppings.map(({id, name, price, imageUrl}) =>
                        (
                         <tr key={id}>
+                        <td><img src={imageUrl}/></td>
                         <td>{name}</td>
                         <td>{`$ ${price}`}</td>
                         <td className="action">
